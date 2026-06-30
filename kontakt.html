@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kontakt — WeBolt Studio</title>
+  <meta name="description" content="Pišite nam za brezplačno ponudbo. WeBolt Studio vam odgovori v 24 urah.">
+  <link rel="icon" type="image/png" href="WeBolt.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <style>
+
+    /* ── Hero overrides ───────────────────────────────── */
+    .contact-hero {
+      padding-top: 130px;
+      padding-bottom: 100px;
+      background: linear-gradient(160deg, #0a1628 0%, #102a50 100%);
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .contact-hero::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      height: 64px;
+      background: #f8f9fb;
+      clip-path: ellipse(55% 100% at 50% 100%);
+    }
+
+    .contact-hero .section-label {
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.2);
+      color: #fff;
+      border-radius: 100px;
+      padding: 4px 16px;
+      font-size: .78rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      display: inline-block;
+      margin-bottom: 24px;
+    }
+
+    .contact-hero h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 18px;
+      line-height: 1.15;
+    }
+
+    .contact-hero p {
+      font-size: 1.08rem;
+      color: rgba(255,255,255,.8);
+      max-width: 520px;
+      margin: 0 auto 36px;
+      line-height: 1.7;
+    }
+
+    .hero-badges {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .hero-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 100px;
+      padding: 8px 18px;
+      font-size: .82rem;
+      font-weight: 500;
+      color: #fff;
+    }
+
+    .hero-badge-dot {
+      width: 7px;
+      height: 7px;
+      background: #4ade80;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ── Contact section ──────────────────────────────── */
+    .contact-section {
+      background: #f8f9fb;
+      padding: 80px 0;
+    }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    /* Info column */
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .contact-info__heading {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #0a1628;
+      margin-bottom: 4px;
+    }
+
+    .contact-info__sub {
+      font-size: .93rem;
+      color: #64748b;
+      margin-bottom: 8px;
+      line-height: 1.65;
+    }
+
+    .info-card {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 20px 22px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      transition: box-shadow .2s, border-color .2s;
+    }
+
+    .info-card:hover {
+      box-shadow: 0 4px 20px rgba(10,22,40,.08);
+      border-color: #c7d7f0;
+    }
+
+    .info-card__icon {
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .info-card__body strong {
+      display: block;
+      font-size: .82rem;
+      font-weight: 600;
+      color: #94a3b8;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      margin-bottom: 3px;
+    }
+
+    .info-card__body a,
+    .info-card__body span {
+      font-size: .97rem;
+      color: #0a1628;
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .info-card__body a:hover {
+      color: #2563eb;
+    }
+
+    .response-badge {
+      background: linear-gradient(135deg, #0a1628 0%, #102a50 100%);
+      border-radius: 14px;
+      padding: 20px 22px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 4px;
+    }
+
+    .response-badge__icon {
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    .response-badge__text strong {
+      display: block;
+      color: #fff;
+      font-size: .95rem;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+
+    .response-badge__text span {
+      color: rgba(255,255,255,.65);
+      font-size: .83rem;
+    }
+
+    /* Form column */
+    .contact-form-card {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 20px;
+      padding: 44px 40px;
+      box-shadow: 0 8px 40px rgba(10,22,40,.07);
+    }
+
+    .contact-form-card h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #0a1628;
+      margin-bottom: 6px;
+    }
+
+    .contact-form-card > p {
+      font-size: .9rem;
+      color: #64748b;
+      margin-bottom: 28px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      font-size: .82rem;
+      font-weight: 600;
+      color: #374151;
+      letter-spacing: .01em;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 11px 15px;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 10px;
+      font-size: .93rem;
+      font-family: inherit;
+      color: #0a1628;
+      background: #f8fafc;
+      outline: none;
+      transition: border-color .2s, background .2s, box-shadow .2s;
+      box-sizing: border-box;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: #3b82f6;
+      background: #fff;
+      box-shadow: 0 0 0 3px rgba(59,130,246,.12);
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: #b0b8c8;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .form-optional {
+      font-size: .75rem;
+      color: #94a3b8;
+      font-weight: 400;
+      margin-left: 4px;
+    }
+
+    .form-submit-btn {
+      width: 100%;
+      padding: 14px 24px;
+      background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: 700;
+      font-family: inherit;
+      cursor: pointer;
+      transition: opacity .2s, transform .15s, box-shadow .2s;
+      margin-top: 4px;
+      box-shadow: 0 4px 20px rgba(37,99,235,.3);
+      letter-spacing: .01em;
+    }
+
+    .form-submit-btn:hover:not(:disabled) {
+      opacity: .92;
+      transform: translateY(-1px);
+      box-shadow: 0 8px 28px rgba(37,99,235,.38);
+    }
+
+    .form-submit-btn:disabled {
+      opacity: .65;
+      cursor: not-allowed;
+    }
+
+    .form-note {
+      font-size: .75rem;
+      color: #94a3b8;
+      text-align: center;
+      margin-top: 14px;
+      margin-bottom: 0;
+    }
+
+    .form-message {
+      font-size: .88rem;
+      border-radius: 10px;
+      padding: 12px 16px;
+      margin-top: 14px;
+      display: none;
+      font-weight: 500;
+    }
+
+    .form-message.success {
+      display: block;
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      color: #16a34a;
+    }
+
+    .form-message.error {
+      display: block;
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+      color: #dc2626;
+    }
+
+    /* ── FAQ section ──────────────────────────────────── */
+    .faq-section {
+      background: #fff;
+      padding: 80px 0;
+    }
+
+    .faq-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .faq-list {
+      max-width: 720px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .faq-item {
+      background: #f8f9fb;
+      border: 1px solid #e2e8f0;
+      border-radius: 14px;
+      overflow: hidden;
+      transition: border-color .2s, box-shadow .2s;
+    }
+
+    .faq-item:hover {
+      border-color: #bfdbfe;
+      box-shadow: 0 4px 20px rgba(10,22,40,.06);
+    }
+
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 22px 26px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      cursor: pointer;
+      font-family: inherit;
+      text-align: left;
+    }
+
+    .faq-question span {
+      font-size: .97rem;
+      font-weight: 600;
+      color: #0a1628;
+    }
+
+    .faq-chevron {
+      width: 28px;
+      height: 28px;
+      background: #e8eef8;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: background .2s, transform .25s;
+      font-size: .7rem;
+      color: #2563eb;
+    }
+
+    .faq-item.open .faq-chevron {
+      background: #2563eb;
+      color: #fff;
+      transform: rotate(180deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .3s ease, padding .3s ease;
+    }
+
+    .faq-answer-inner {
+      padding: 0 26px 22px;
+      font-size: .92rem;
+      color: #4b5563;
+      line-height: 1.7;
+    }
+
+    .faq-item.open .faq-answer {
+      max-height: 200px;
+    }
+
+    /* ── Bottom CTA ───────────────────────────────────── */
+    .contact-cta {
+      text-align: center;
+      padding: 72px 0;
+      background: linear-gradient(160deg, #0a1628 0%, #102a50 100%);
+      color: #fff;
+    }
+
+    .contact-cta .section-label {
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.2);
+      color: #fff;
+      border-radius: 100px;
+      padding: 4px 16px;
+      font-size: .78rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+
+    .contact-cta h2 {
+      font-size: clamp(1.5rem, 3vw, 2.1rem);
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+
+    .contact-cta p {
+      color: rgba(255,255,255,.72);
+      font-size: 1rem;
+      margin-bottom: 32px;
+    }
+
+    /* ── Responsive ───────────────────────────────────── */
+    @media (max-width: 900px) {
+      .contact-layout {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .form-row { grid-template-columns: 1fr; }
+      .contact-form-card { padding: 28px 20px; }
+      .contact-hero { padding-top: 100px; padding-bottom: 80px; }
+      .hero-badges { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="nav">
+    <div class="container">
+      <div class="nav__inner">
+        <a class="nav__logo" href="index.html">
+          <img src="WeBolt.png" alt="WeBolt Studio" height="40" style="width:auto;vertical-align:middle;">
+          WeBolt Studio
+        </a>
+        <div class="nav__links">
+          <a href="index.html">Domov</a>
+          <a href="storitve.html">Storitve</a>
+          <a href="onas.html">O nas</a>
+          <a href="kontakt.html">Kontakt</a>
+        </div>
+        <div class="nav__cta">
+          <a href="posebna-ponudba.html" class="btn btn-primary">Posebna ponudba</a>
+        </div>
+        <button class="nav__burger" aria-label="Odpri meni">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="nav__mobile">
+      <a href="index.html">Domov</a>
+      <a href="storitve.html">Storitve</a>
+      <a href="onas.html">O nas</a>
+      <a href="kontakt.html">Kontakt</a>
+      <a href="posebna-ponudba.html">Posebna ponudba →</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="contact-hero">
+    <div class="container">
+      <span class="section-label">Kontakt</span>
+      <h1>Kontaktirajte nas</h1>
+      <p>Pišite nam za brezplačno ponudbo po meri ali odgovore na vprašanja. Javimo se v 24 urah.</p>
+      <div class="hero-badges">
+        <div class="hero-badge">
+          <span class="hero-badge-dot"></span>
+          Odgovorimo v 24 urah
+        </div>
+        <div class="hero-badge">
+          <span class="hero-badge-dot"></span>
+          Brezplačna ponudba
+        </div>
+        <div class="hero-badge">
+          <span class="hero-badge-dot"></span>
+          Brez obveznosti
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact-section">
+    <div class="container">
+      <div class="contact-layout">
+
+        <!-- Info column -->
+        <div class="contact-info fade-up">
+          <h2 class="contact-info__heading">Kako nas dosežete</h2>
+          <p class="contact-info__sub">Smo dostopni prek e-pošte in spletnega obrazca. Radi se pogovorimo o vašem projektu.</p>
+
+          <div class="info-card">
+            <div class="info-card__icon">✉️</div>
+            <div class="info-card__body">
+              <strong>E-pošta</strong>
+              <a href="mailto:info@webolt.si">info@webolt.si</a>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <div class="info-card__icon">📍</div>
+            <div class="info-card__body">
+              <strong>Lokacija</strong>
+              <span>Slovenija — delujemo po vsej državi</span>
+            </div>
+          </div>
+
+          <div class="response-badge">
+            <div class="response-badge__icon">⚡</div>
+            <div class="response-badge__text">
+              <strong>Hiter odziv</strong>
+              <span>Na vsa sporočila odgovorimo v 24 urah. Navadno precej hitreje.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Form column -->
+        <div class="contact-form-card fade-up delay-2">
+          <h3>Pošljite nam sporočilo</h3>
+          <p>Opišite, kaj potrebujete, in pripravimo vam ponudbo po meri.</p>
+
+          <form id="contact-form" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="ime">Ime in priimek *</label>
+                <input type="text" id="ime" name="ime" placeholder="Janez Novak" required>
+              </div>
+              <div class="form-group">
+                <label for="email">E-pošta *</label>
+                <input type="email" id="email" name="email" placeholder="janez@podjetje.si" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="telefon">Telefon <span class="form-optional">(neobvezno)</span></label>
+                <input type="tel" id="telefon" name="telefon" placeholder="+386 41 ...">
+              </div>
+              <div class="form-group">
+                <label for="podjetje">Podjetje <span class="form-optional">(neobvezno)</span></label>
+                <input type="text" id="podjetje" name="podjetje" placeholder="Ime podjetja">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="sporocilo">Sporočilo *</label>
+              <textarea id="sporocilo" name="sporocilo" placeholder="Opišite vaš projekt ali kaj vas zanima..." required></textarea>
+            </div>
+            <button type="submit" class="form-submit-btn">Pošlji sporočilo →</button>
+            <p class="form-message" id="form-message"></p>
+            <p class="form-note">Z oddajo obrazca soglašate z obdelavo osebnih podatkov za namen odgovora na vaše povpraševanje.</p>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="container">
+      <div class="faq-header fade-up">
+        <span class="section-label">FAQ</span>
+        <h2 class="section-title">Pogosta vprašanja</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item fade-up delay-1">
+          <button class="faq-question" aria-expanded="false">
+            <span>Koliko stane spletna stran?</span>
+            <div class="faq-chevron">▼</div>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Cena je odvisna od obsega projekta. Natančno ponudbo pripravimo po uvodnem pogovoru brezplačno.
+            </div>
+          </div>
+        </div>
+        <div class="faq-item fade-up delay-2">
+          <button class="faq-question" aria-expanded="false">
+            <span>Koliko časa traja razvoj spletne strani?</span>
+            <div class="faq-chevron">▼</div>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Osnovna poslovna stran je navadno pripravljena v 7 dneh. Kompleksnejši projekti z več podstranmi ali posebnimi funkcijami lahko trajajo 7–14 dni.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOTTOM CTA -->
+  <section class="contact-cta">
+    <div class="container">
+      <span class="section-label">Naslednji korak</span>
+      <h2>Pripravljeni začeti?</h2>
+      <p>Prva pogovor je brezplačen in brez obveznosti.</p>
+      <a href="posebna-ponudba.html" class="btn btn-white btn-lg">Oglejte si posebno ponudbo →</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <a class="footer__logo" href="index.html">
+            <img src="WeBolt.png" alt="WeBolt Studio" height="40" style="width:auto;vertical-align:middle;">
+            WeBolt Studio
+          </a>
+          <p>Spletne rešitve za slovenska podjetja, ki želijo rasti. Moderna koda, čist dizajn, pravi rezultati.</p>
+        </div>
+        <div class="footer__col">
+          <h4>Strani</h4>
+          <ul>
+            <li><a href="index.html">Domov</a></li>
+            <li><a href="storitve.html">Storitve</a></li>
+            <li><a href="onas.html">O nas</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+            <li><a href="posebna-ponudba.html">Posebna ponudba</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Storitve</h4>
+          <ul>
+            <li><a href="storitve.html#spletne-strani">Spletne strani</a></li>
+            <li><a href="storitve.html#seo">SEO optimizacija</a></li>
+            <li><a href="storitve.html#chatbot">AI Chatbot</a></li>
+            <li><a href="storitve.html#booking">Booking sistem</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Kontakt</h4>
+          <ul>
+            <li><a href="mailto:info@webolt.si">info@webolt.si</a></li>
+            <li><a href="kontakt.html">Slovenija</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© 2026 WeBolt Studio. Vse pravice pridržane.</span>
+        <span>webolt.si</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    /* ── FAQ accordion ──────────────────────────────── */
+    document.querySelectorAll('.faq-question').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(function (i) {
+          i.classList.remove('open');
+          i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+        });
+        if (!isOpen) {
+          item.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

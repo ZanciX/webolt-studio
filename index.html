@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WeBolt Studio — Spletne strani, SEO in digitalne rešitve</title>
+  <meta name="description" content="WeBolt Studio ustvarja profesionalne spletne strani, optimizacijo za iskalnike (SEO), AI chatbote in booking sisteme za slovenska podjetja.">
+  <link rel="icon" type="image/png" href="WeBolt.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Override hero elements for dark landing-hero background */
+    .hero.landing-hero .hero__badge {
+      background: rgba(255,255,255,.15);
+      border-color: rgba(255,255,255,.25);
+      color: var(--white);
+    }
+    .hero.landing-hero .hero__badge-dot {
+      background: var(--white);
+    }
+    .hero.landing-hero .btn-outline {
+      color: var(--white);
+      border-color: rgba(255,255,255,.6);
+    }
+    .hero.landing-hero .btn-outline:hover {
+      background: rgba(255,255,255,.12);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="nav">
+    <div class="container">
+      <div class="nav__inner">
+        <a class="nav__logo" href="index.html">
+          <img src="WeBolt.png" alt="WeBolt Studio" height="40" style="width:auto;vertical-align:middle;">
+          WeBolt Studio
+        </a>
+        <div class="nav__links">
+          <a href="index.html">Domov</a>
+          <a href="storitve.html">Storitve</a>
+          <a href="onas.html">O nas</a>
+          <a href="kontakt.html">Kontakt</a>
+        </div>
+        <div class="nav__cta">
+          <a href="posebna-ponudba.html" class="btn btn-primary">Posebna ponudba</a>
+        </div>
+        <button class="nav__burger" aria-label="Odpri meni">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="nav__mobile">
+      <a href="index.html">Domov</a>
+      <a href="storitve.html">Storitve</a>
+      <a href="onas.html">O nas</a>
+      <a href="kontakt.html">Kontakt</a>
+      <a href="posebna-ponudba.html">Posebna ponudba →</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero landing-hero">
+    <div class="container">
+      <div class="hero__inner">
+        <div class="hero__content">
+          <div class="hero__badge">
+            <span class="hero__badge-dot"></span>
+            Sprejemamo nove stranke
+          </div>
+          <h1 class="hero__title">
+            Spletna prisotnost,<br>ki <span>prinaša stranke</span>
+          </h1>
+          <p class="hero__sub">
+            Ustvarjamo moderne spletne strani, ki ne samo izgledajo dobro —
+            ampak delajo za vaše podjetje. SEO, hitrost in dizajn v enem paketu.
+          </p>
+          <div class="hero__actions">
+            <a href="posebna-ponudba.html" class="btn btn-primary btn-lg">Pridobi brezplačno ponudbo</a>
+            <a href="storitve.html" class="btn btn-outline btn-lg">Oglejte si storitve</a>
+          </div>
+        </div>
+        <div class="hero__visual">
+          <div class="hero__mockup">
+            <div class="mockup__bar">
+              <span class="mockup__dot"></span>
+              <span class="mockup__dot"></span>
+              <span class="mockup__dot"></span>
+            </div>
+            <div class="mockup__url">🔒 webolt.si/vasastran.si</div>
+            <div class="mockup__hero-block">
+              <span class="mockup__hero-line"></span>
+              <span class="mockup__hero-line"></span>
+            </div>
+            <div class="mockup__cards">
+              <div class="mockup__card"></div>
+              <div class="mockup__card"></div>
+              <div class="mockup__card"></div>
+            </div>
+            <div class="mockup__text-lines">
+              <div class="mockup__text-line"></div>
+              <div class="mockup__text-line"></div>
+              <div class="mockup__text-line"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES OVERVIEW -->
+  <section class="section" id="storitve">
+    <div class="container">
+      <div class="fade-up">
+        <span class="section-label">Storitve</span>
+        <h2 class="section-title">Vse, kar vaše podjetje potrebuje na spletu</h2>
+        <p class="section-subtitle">
+          Od dizajna do lansiranja — pokrivamo celoten digitalni ekosistem vašega podjetja.
+        </p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card fade-up delay-1">
+          <div class="service-card__icon">🌐</div>
+          <h3>Spletne strani</h3>
+          <p>
+            Moderne, hitre in mobilno odzivne spletne strani. Vsaka stran je ročno kodirana — brez počasnih page builderjev.
+            Vaša stran se naloži v manj kot 2 sekundi.
+          </p>
+          <a href="storitve.html#spletne-strani" class="service-card__link">Izvedi več →</a>
+        </div>
+        <div class="service-card fade-up delay-2">
+          <div class="service-card__icon">🔍</div>
+          <h3>SEO optimizacija</h3>
+          <p>
+            Pojavite se višje na Googlu. Tehnična SEO optimizacija, hitrost strani, strukturirani podatki in lokalni SEO
+            za vaše področje.
+          </p>
+          <a href="storitve.html#seo" class="service-card__link">Izvedi več →</a>
+        </div>
+        <div class="service-card fade-up delay-3">
+          <div class="service-card__icon">🤖</div>
+          <h3>AI Chatbot</h3>
+          <p>
+            24/7 avtomatizirana podpora za vaše obiskovalce. AI chatbot odgovarja na vprašanja, zbira kontakte
+            in vam prihrani čas.
+          </p>
+          <a href="storitve.html#chatbot" class="service-card__link">Izvedi več →</a>
+        </div>
+        <div class="service-card fade-up delay-4">
+          <div class="service-card__icon">📅</div>
+          <h3>Booking sistem</h3>
+          <p>
+            Stranke se rezervirajo same — brez klicev in e-mailov. Integracija s kalendarjem, SMS/email
+            opomniki in spletnim plačilom.
+          </p>
+          <a href="storitve.html#booking" class="service-card__link">Izvedi več →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section class="section why-us">
+    <div class="container">
+      <div class="fade-up text-white">
+        <span class="section-label light">Zakaj WeBolt Studio</span>
+        <h2 class="section-title">Naredimo kar obljubimo — v roku</h2>
+        <p class="section-subtitle" style="color: rgba(255,255,255,.75); margin-bottom: 56px;">
+          Smo majhna ekipa z velikim fokusom. Brez korporativnih procesov, brez čakanja.
+        </p>
+      </div>
+      <div class="grid-3">
+        <div class="why-card fade-up delay-1">
+          <div class="why-card__number">01</div>
+          <h3>Hitrost in rezultati</h3>
+          <p>Vaša stran je živa v 7 dneh. Vsaka stran je optimizirana za hitrost in iskalnike že od prve vrstice kode.</p>
+        </div>
+        <div class="why-card fade-up delay-2">
+          <div class="why-card__number">02</div>
+          <h3>Brez skritih stroškov</h3>
+          <p>Jasna cena od začetka. Veste točno, kaj dobite in kdaj. Brez presenečenj na fakturi.</p>
+        </div>
+        <div class="why-card fade-up delay-3">
+          <div class="why-card__number">03</div>
+          <h3>Dolgoročno partnerstvo</h3>
+          <p>Nismo samo izvajalci — smo partner za vaš digitalni razvoj. Vzdrževanje, posodobitve in rast skupaj z vami.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section cta-section">
+    <div class="container text-center">
+      <div class="fade-up">
+        <span class="section-label light">Začnemo danes</span>
+        <h2 class="section-title" style="color: #fff; margin-bottom: 14px;">Pripravljeni na pravo spletno stran?</h2>
+        <p>Pišite nam in v 24 urah dobite brezplačno ponudbo po meri.</p>
+        <a href="posebna-ponudba.html" class="btn btn-white btn-lg">Brezplačna ponudba</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <a class="footer__logo" href="index.html">
+            <img src="WeBolt.png" alt="WeBolt Studio" height="40" style="width:auto;vertical-align:middle;">
+            WeBolt Studio
+          </a>
+          <p>Spletne rešitve za slovenska podjetja, ki želijo rasti. Moderna koda, čist dizajn, pravi rezultati.</p>
+        </div>
+        <div class="footer__col">
+          <h4>Strani</h4>
+          <ul>
+            <li><a href="index.html">Domov</a></li>
+            <li><a href="storitve.html">Storitve</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+            <li><a href="posebna-ponudba.html">Posebna ponudba</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Storitve</h4>
+          <ul>
+            <li><a href="storitve.html#spletne-strani">Spletne strani</a></li>
+            <li><a href="storitve.html#seo">SEO optimizacija</a></li>
+            <li><a href="storitve.html#chatbot">AI Chatbot</a></li>
+            <li><a href="storitve.html#booking">Booking sistem</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Kontakt</h4>
+          <ul>
+            <li><a href="mailto:info@webolt.si">info@webolt.si</a></li>
+            <li><a href="tel:+38641000000">+386 41 000 000</a></li>
+            <li><a href="kontakt.html">Slovenija</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© 2026 WeBolt Studio. Vse pravice pridržane.</span>
+        <span>webolt.si</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

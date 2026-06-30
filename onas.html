@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>O nas — WeBolt Studio</title>
+  <meta name="description" content="WeBolt Studio je slovensko spletno agencijo, predana kakovostnim digitalnim rešitvam za domača podjetja.">
+  <link rel="icon" type="image/png" href="WeBolt.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .about-intro {
+      background: var(--white);
+    }
+
+    .about-intro__inner {
+      max-width: 780px;
+    }
+
+    .about-intro__inner p {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--gray-600);
+      margin-bottom: 20px;
+    }
+
+    .about-intro__inner p:last-child {
+      margin-bottom: 0;
+    }
+
+    .process-section { background: var(--gray-50); }
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      position: relative;
+    }
+
+    .process-steps::before {
+      content: '';
+      position: absolute;
+      top: 28px;
+      left: 12.5%;
+      right: 12.5%;
+      height: 2px;
+      background: var(--blue-100);
+      z-index: 0;
+    }
+
+    .process-step {
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      padding: 0 16px;
+    }
+
+    .process-step__num {
+      width: 56px;
+      height: 56px;
+      background: var(--blue-400);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--white);
+      margin: 0 auto 20px;
+      border: 4px solid var(--white);
+      box-shadow: 0 0 0 2px var(--blue-100);
+    }
+
+    .process-step h4 {
+      font-size: .95rem;
+      margin-bottom: 6px;
+    }
+
+    .process-step p {
+      font-size: .83rem;
+    }
+
+    @media (max-width: 768px) {
+      .process-steps { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .process-steps::before { display: none; }
+    }
+
+    @media (max-width: 480px) {
+      .process-steps { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="nav">
+    <div class="container">
+      <div class="nav__inner">
+        <a class="nav__logo" href="index.html">
+          <img src="WeBolt.png" alt="WeBolt Studio" height="40" style="width:auto;vertical-align:middle;">
+          WeBolt Studio
+        </a>
+        <div class="nav__links">
+          <a href="index.html">Domov</a>
+          <a href="storitve.html">Storitve</a>
+          <a href="onas.html">O nas</a>
+          <a href="kontakt.html">Kontakt</a>
+        </div>
+        <div class="nav__cta">
+          <a href="posebna-ponudba.html" class="btn btn-primary">Posebna ponudba</a>
+        </div>
+        <button class="nav__burger" aria-label="Odpri meni">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="nav__mobile">
+      <a href="index.html">Domov</a>
+      <a href="storitve.html">Storitve</a>
+      <a href="onas.html">O nas</a>
+      <a href="kontakt.html">Kontakt</a>
+      <a href="posebna-ponudba.html">Posebna ponudba →</a>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="landing-hero">
+    <div class="container">
+      <span class="section-label">O nas</span>
+      <h1>Mlada agencija z resnimi cilji</h1>
+      <p>Smo WeBolt Studio — majhna ekipa, ki verjame, da vsako slovensko podjetje zasluži profesionalno spletno prisotnost.</p>
+    </div>
+  </section>
+
+  <!-- ABOUT INTRO -->
+  <section class="section about-intro">
+    <div class="container">
+      <div class="about-intro__inner fade-up">
+        <span class="section-label">Kdo smo</span>
+        <h2 class="section-title" style="margin-bottom: 32px;">Predanost vsakemu projektu</h2>
+        <p>
+          WeBolt Studio je slovensko spletno studio, ki nastaja z enim jasnim namenom: pomagati domačim podjetjem, obrtnikom in podjetnikom do spletne prisotnosti, ki dejansko deluje. Ne gre le za lepo stran — gre za orodje, ki privablja stranke in gradi zaupanje.
+        </p>
+        <p>
+          Smo nov studio in to povemo naravnost. Ne lažemo o "desetih letih izkušenj". Kar nudimo je resnična predanost vsakemu projektu, sodobno tehnično znanje in motivacija, da stranko presenetimo — ker naš ugled šele gradimo skupaj z vami.
+        </p>
+        <p>
+          Vsako spletno stran kodiramo ročno, brez počasnih graditeljev strani. Rezultat je hitra, varnostno zanesljiva in SEO-optimizirana stran, ki izgleda profesionalno na vsakem zaslonu. Brez skritih stroškov, brez nepotrebnih zapletov — samo jasno delo in merljivi rezultati.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="section process-section">
+    <div class="container">
+      <div class="fade-up text-center" style="margin-bottom: 56px;">
+        <span class="section-label">Proces</span>
+        <h2 class="section-title">Od povpraševanja do žive strani v 4 korakih</h2>
+      </div>
+      <div class="process-steps">
+        <div class="process-step fade-up delay-1">
+          <div class="process-step__num">1</div>
+          <h4>Uvodni pogovor</h4>
+          <p>Spoznamo vaše podjetje, cilje in pričakovanja. Traja 20–30 minut.</p>
+        </div>
+        <div class="process-step fade-up delay-2">
+          <div class="process-step__num">2</div>
+          <h4>Ponudba in dogovor</h4>
+          <p>Prejmete natančno ponudbo s specifikacijo, rokom in ceno.</p>
+        </div>
+        <div class="process-step fade-up delay-3">
+          <div class="process-step__num">3</div>
+          <h4>Razvoj in pregled</h4>
+          <p>Razvijemo stran, vi pregledate in daste povratne informacije.</p>
+        </div>
+        <div class="process-step fade-up delay-4">
+          <div class="process-step__num">4</div>
+          <h4>Objava</h4>
+          <p>Stran gre živo. Dobite dostope in navodila za samostojno upravljanje.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST -->
+  <section class="section trust-section">
+    <div class="container">
+      <div class="fade-up text-center" style="margin-bottom: 48px;">
+        <span class="section-label">Zaupanje</span>
+        <h2 class="section-title">Zakaj nam zaupate — čeprav smo novi</h2>
+      </div>
+      <div class="trust-grid">
+        <div class="trust-card fade-up delay-1">
+          <div class="trust-card__icon">📋</div>
+          <h4>Jasna pogodba</h4>
+          <p>Vsak projekt je podprt s pisnim dogovorom, ki natančno opredeli obseg, roke in ceno. Brez presenečenj.</p>
+        </div>
+        <div class="trust-card fade-up delay-2">
+          <div class="trust-card__icon">🔁</div>
+          <h4>Revizije vključene</h4>
+          <p>Dve rundi popravkov sta vključeni v ceno. Stran bo takšna, kot si jo zamišljate — brez kompromisov.</p>
+        </div>
+        <div class="trust-card fade-up delay-3">
+          <div class="trust-card__icon">🚀</div>
+          <h4>Moderna tehnologija</h4>
+          <p>Delamo z najnovejšimi standardi — čista koda, brez zastarelih rešitev, ki bi vas ovirali čez leto ali dve.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section cta-section">
+    <div class="container text-center">
+      <div class="fade-up">
+        <span class="section-label light">Naslednji korak</span>
+        <h2 class="section-title" style="color: #fff; margin-bottom: 14px;">Pogovorimo se o vašem projektu</h2>
+        <p>Brezplačen uvodni pogovor, brez zavez. Samo priložnost, da ugotovimo, ali se ujamemo.</p>
+        <a href="kontakt.html" class="btn btn-white btn-lg">Stopite v stik →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <a class="footer__logo" href="index.html">
+            <img src="WeBolt.png" alt="WeBolt Studio" height="40" style="width:auto;vertical-align:middle;">
+            WeBolt Studio
+          </a>
+          <p>Spletne rešitve za slovenska podjetja, ki želijo rasti. Moderna koda, čist dizajn, pravi rezultati.</p>
+        </div>
+        <div class="footer__col">
+          <h4>Strani</h4>
+          <ul>
+            <li><a href="index.html">Domov</a></li>
+            <li><a href="storitve.html">Storitve</a></li>
+            <li><a href="onas.html">O nas</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+            <li><a href="posebna-ponudba.html">Posebna ponudba</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Storitve</h4>
+          <ul>
+            <li><a href="storitve.html#spletne-strani">Spletne strani</a></li>
+            <li><a href="storitve.html#seo">SEO optimizacija</a></li>
+            <li><a href="storitve.html#chatbot">AI Chatbot</a></li>
+            <li><a href="storitve.html#booking">Booking sistem</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Kontakt</h4>
+          <ul>
+            <li><a href="mailto:info@webolt.si">info@webolt.si</a></li>
+            <li><a href="tel:+38641000000">+386 41 000 000</a></li>
+            <li><a href="kontakt.html">Slovenija</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© 2026 WeBolt Studio. Vse pravice pridržane.</span>
+        <span>webolt.si</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
